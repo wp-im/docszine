@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<ruleset name="Docszine">
+	<description>WordPress Coding Standards for the Docszine Classic Theme.</description>
+
+	<rule ref="WordPress">
+		<!-- WordPress requires the underscore taxonomy slug in this template filename. -->
+		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
+	</rule>
+
+	<file>theme</file>
+	<arg name="extensions" value="php" />
+	<arg name="colors" />
+	<arg name="parallel" value="8" />
+</ruleset>

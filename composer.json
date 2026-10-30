@@ -1,0 +1,16 @@
+{
+    "name": "wp-im/docszine",
+    "description": "Development checks for the Docszine WordPress Classic Theme.",
+    "type": "project",
+    "license": "GPL-2.0-or-later",
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.13",
+        "wp-coding-standards/wpcs": "^3.4"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        },
+        "sort-packages": true
+    }
+}

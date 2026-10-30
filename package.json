@@ -1,0 +1,11 @@
+{
+    "name": "docszine-development",
+    "private": true,
+    "description": "Development checks for the Docszine Classic Theme.",
+    "scripts": {
+        "lint:css": "stylelint \"theme/assets/css/**/*.css\""
+    },
+    "devDependencies": {
+        "stylelint": "^17.15.0"
+    }
+}

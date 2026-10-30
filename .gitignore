@@ -1,0 +1,10 @@
+build/
+reference/
+.DS_Store
+.env
+.env.*
+*.log
+vendor/
+.phpcs-cache
+node_modules/
+.stylelintcache

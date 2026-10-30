@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Docszine documentation theme preview</title>
+  <desc id="desc">A white documentation-led WordPress theme with a gray Docs Tree sidebar, editorial typography, directory rows, and a current issue section.</desc>
+  <rect width="1200" height="900" fill="#ffffff"/>
+  <rect width="248" height="900" fill="#f6f6f7"/>
+  <line x1="247" y1="64" x2="247" y2="900" stroke="#e2e2e3"/>
+  <line x1="248" y1="63.5" x2="1200" y2="63.5" stroke="#e2e2e3"/>
+
+  <g font-family="Arial,Helvetica,sans-serif" fill="#3c3c43">
+    <text x="276" y="39" font-size="18" font-weight="700" letter-spacing="-.2">DOCSZINE</text>
+    <text x="804" y="38" font-size="11" fill="#67676c">ABOUT</text>
+    <text x="862" y="38" font-size="11" fill="#67676c">ARCHIVE</text>
+    <rect x="946" y="21" width="198" height="25" rx="5" fill="#f6f6f7" stroke="#e2e2e3"/>
+    <text x="960" y="38" font-size="10" fill="#6b6c72">Search the documentation</text>
+
+    <text x="28" y="39" font-size="16" font-weight="700">DOCSZINE</text>
+    <text x="28" y="92" font-size="10" font-weight="700" letter-spacing="1.4" fill="#6b6c72">DOCUMENTATION</text>
+    <text x="36" y="126" font-size="13" font-weight="600">Start here</text>
+    <line x1="28" y1="143" x2="215" y2="143" stroke="#e2e2e3"/>
+    <text x="36" y="174" font-size="12" font-weight="600">Reading instruments</text>
+    <text x="52" y="200" font-size="11" fill="#67676c">A theme as a reader</text>
+    <text x="52" y="222" font-size="11" fill="#67676c">Archive comes first</text>
+    <text x="36" y="260" font-size="12" font-weight="600">Editorial practice</text>
+    <text x="52" y="286" font-size="11" fill="#67676c">Principles and method</text>
+    <text x="52" y="308" font-size="11" fill="#67676c">The smallest useful plugin</text>
+    <text x="36" y="346" font-size="12" font-weight="600">About Docszine</text>
+    <text x="28" y="850" font-size="9" letter-spacing="1.4" fill="#6b6c72">A DOCUMENT-LED THEME</text>
+
+    <text x="276" y="123" font-size="10" font-weight="700" letter-spacing="2.1" fill="#e87917">DOCUMENTATION</text>
+    <text x="276" y="190" font-size="66" font-weight="600" letter-spacing="-2.5">Docszine</text>
+    <text x="276" y="228" font-size="19" fill="#67676c">Long-form reading, issue navigation, and the</text>
+    <text x="276" y="257" font-size="19" fill="#67676c">structures that keep knowledge usable.</text>
+    <line x1="276" y1="302" x2="1144" y2="302" stroke="#e2e2e3"/>
+
+    <text x="276" y="350" font-size="17" font-weight="600">Start here</text>
+    <text x="972" y="350" font-size="10" fill="#6b6c72">BROWSE THE DOCUMENTATION</text>
+    <line x1="276" y1="367" x2="1144" y2="367" stroke="#e2e2e3"/>
+
+    <text x="276" y="406" font-size="11" fill="#6b6c72">01</text>
+    <text x="321" y="405" font-size="15" font-weight="600">Reading instruments</text>
+    <text x="321" y="427" font-size="11" fill="#67676c">How a theme gives a document a horizon and a reader a way in.</text>
+    <text x="1122" y="408" font-size="19" fill="#e87917">→</text>
+    <line x1="276" y1="449" x2="1144" y2="449" stroke="#e2e2e3"/>
+
+    <text x="276" y="488" font-size="11" fill="#6b6c72">02</text>
+    <text x="321" y="487" font-size="15" font-weight="600">Editorial practice</text>
+    <text x="321" y="509" font-size="11" fill="#67676c">Notes on structure, method, archives, and the care of long-form work.</text>
+    <text x="1122" y="490" font-size="19" fill="#6b6c72">→</text>
+    <line x1="276" y1="531" x2="1144" y2="531" stroke="#e2e2e3"/>
+
+    <text x="276" y="570" font-size="11" fill="#6b6c72">03</text>
+    <text x="321" y="569" font-size="15" font-weight="600">About Docszine</text>
+    <text x="321" y="591" font-size="11" fill="#67676c">The project, its principles, and the publishing system behind the theme.</text>
+    <text x="1122" y="572" font-size="19" fill="#6b6c72">→</text>
+    <line x1="276" y1="613" x2="1144" y2="613" stroke="#e2e2e3"/>
+
+    <text x="276" y="667" font-size="10" font-weight="700" letter-spacing="1.8" fill="#e87917">CURRENT ISSUE</text>
+    <text x="276" y="707" font-size="25" font-weight="600">The Reading Surface</text>
+    <text x="276" y="735" font-size="13" fill="#67676c">Six essays on how documents make room for a reader.</text>
+    <text x="276" y="779" font-size="11" fill="#e87917">Explore this issue →</text>
+    <line x1="276" y1="819" x2="1144" y2="819" stroke="#e2e2e3"/>
+    <text x="276" y="850" font-size="10" fill="#6b6c72">A QUIET READING SYSTEM FOR THE LIFE OF DOCUMENTS</text>
+  </g>
+</svg>
