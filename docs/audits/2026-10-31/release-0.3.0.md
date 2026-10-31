@@ -1,5 +1,7 @@
 # Docszine 0.3.0 acceptance and deployment
 
+Superseded by the focused [0.3.1 pagination compatibility patch](release-0.3.1.md). This record describes the original 0.3.0 deployment.
+
 ## Released theme
 
 - Theme: 0.3.0, standard PHP Classic Theme; WordPress 6.6+ / PHP 8.0+.

@@ -2,7 +2,7 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Docszine 0.3.0\n"
+"Project-Id-Version: Docszine 0.3.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/docszine\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -272,7 +272,7 @@ msgid "Issue %s"
 msgstr ""
 
 #: inc/template-tags.php:484
-#: taxonomy-docszine_issue.php:73
+#: taxonomy-docszine_issue.php:74
 msgid "Other"
 msgstr ""
 
@@ -356,28 +356,28 @@ msgstr[1] ""
 msgid "Editor’s note"
 msgstr ""
 
-#: taxonomy-docszine_issue.php:85
+#: taxonomy-docszine_issue.php:86
 msgid "No stories in this Issue yet."
 msgstr ""
 
-#: taxonomy-docszine_issue.php:86
+#: taxonomy-docszine_issue.php:87
 msgid "Publish a post and assign it to this Issue to make the sequence visible here."
 msgstr ""
 
-#: taxonomy-docszine_issue.php:93
+#: taxonomy-docszine_issue.php:94
 msgid "Issue contents pages"
 msgstr ""
 
-#: taxonomy-docszine_issue.php:112
+#: taxonomy-docszine_issue.php:113
 #: template-parts/layout/leftbar.php:18
 msgid "Issue navigation"
 msgstr ""
 
-#: taxonomy-docszine_issue.php:117
+#: taxonomy-docszine_issue.php:118
 msgid "Previous Issue"
 msgstr ""
 
-#: taxonomy-docszine_issue.php:122
+#: taxonomy-docszine_issue.php:123
 msgid "Next Issue"
 msgstr ""
 

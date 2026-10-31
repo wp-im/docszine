@@ -1,0 +1,32 @@
+{
+  "site": "https://wordpress.im/docszine/",
+  "theme": "0.3.1",
+  "package_sha256": "74e74dc76ec59d8d71550b6e2be6d350a7fbb625b08bd5883d02d822deed2b9e",
+  "zip_files": 52,
+  "assets": [
+    {
+      "file": "style.css",
+      "url": "https://wordpress.im/docszine/wp-content/themes/docszine/style.css?ver=4a7b6f0752bf",
+      "sha256": "4a7b6f0752bfee5ade9aa50b76891ae7c9af81029d3a824c16fba093548ff325",
+      "match": true
+    },
+    {
+      "file": "assets/css/magazine.css",
+      "url": "https://wordpress.im/docszine/wp-content/themes/docszine/assets/css/magazine.css?ver=96df2b157276",
+      "sha256": "96df2b1572767d107fab0e96e3b63b7a9865a062e871b8c57f56f2e3a27c59b0",
+      "match": true
+    },
+    {
+      "file": "assets/js/navigation.js",
+      "url": "https://wordpress.im/docszine/wp-content/themes/docszine/assets/js/navigation.js?ver=9eb4c822c2a9",
+      "sha256": "9eb4c822c2a95738b68f95984d40750a58eda65a4d42d8ced6adb44b328034db",
+      "match": true
+    },
+    {
+      "file": "assets/js/article.js",
+      "url": "https://wordpress.im/docszine/wp-content/themes/docszine/assets/js/article.js?ver=0d12514acbc1",
+      "sha256": "0d12514acbc14b2965de17c010f07bc40fc553f239d2077abdc7ccef535f27bc",
+      "match": true
+    }
+  ]
+}

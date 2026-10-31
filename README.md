@@ -2,15 +2,15 @@
 
 Docszine is a WordPress Classic Theme for a document-led editorial magazine: long-form reading, issue navigation, and structured archives without turning the content into a page-builder canvas.
 
-## Version 0.3.0
+## Version 0.3.1
 
 Requires WordPress 6.6+ and PHP 8.0+. The optional Docszine Editorial plugin remains at 0.1.1. Both sidebars use native widgets on every public route. On smaller screens, Browse opens from the left (at most 70% of the viewport), Sidebar opens from the right (at most 90%), and the primary menu remains a separate control. Each article or Page owns its TOC.
 
-Install `docszine-theme-0.3.0.zip` through Appearance → Themes. Install the separate Editorial package only when Issue metadata and editorial shortcodes are needed. Existing Posts, Pages, Categories, Tags, authors, widgets and permalinks remain native WordPress data.
+Install `docszine-theme-0.3.1.zip` through Appearance → Themes. Install the separate Editorial package only when Issue metadata and editorial shortcodes are needed. Existing Posts, Pages, Categories, Tags, authors, widgets and permalinks remain native WordPress data.
 
 Choose a static homepage and a posts page under Settings → Reading for the Docs-first layout, or select latest posts for a conventional blog. Set the Docs Root page under Customize → Documentation Navigation. Configure Primary and Footer menus under Appearance → Menus, and the existing `docszine-leftbar` / `docszine-rightbar` areas under Appearance → Widgets. The Docs Section Index Page template lists published direct child Pages; native Categories remain editorial Sections.
 
-Issue archives paginate the complete publication, while the sidebar limits its visible list and keeps the current article accessible. Article navigation follows editorial order. Asset versions use file content digests so reproducible ZIP timestamps do not preserve stale browser caches.
+Issue archives paginate the complete publication using the native archive query page size, while the sidebar limits its visible list and keeps the current article accessible. Article navigation follows editorial order. Asset versions use file content digests so reproducible ZIP timestamps do not preserve stale browser caches.
 
 Local development checks: `DOCSZINE_QA_PATH=/path/to/studio/site bash scripts/validate-theme.sh`. The registered QA theme must match `theme/`; the script runs the official Theme Check plugin through Studio. The native minimum-version Blueprint and browser matrix harness are in `tests/`. Acceptance records and limitations are under `docs/audits/2026-10-31/`. No real-device or screen-reader certification is claimed, and no WordPress.org submission is performed.
 

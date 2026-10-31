@@ -62,13 +62,15 @@ try {
 	$check( false !== strpos( $sidebar, 'aria-current="page"' ), 'Current story remains visible beyond sidebar limit.' );
 	global $wp_query;
 	$original_query = $wp_query;
-	foreach ( array( 1 => 30, 2 => 30, 5 => 1 ) as $page => $expected_entries ) {
-		$wp_query = new WP_Query( array( 'post_type' => 'post', 'docszine_issue' => get_term( $issue_id )->slug, 'paged' => $page ) );
+	foreach ( array( array( 10, 1, 10 ), array( 10, 13, 1 ), array( 30, 1, 30 ), array( 30, 2, 30 ), array( 30, 5, 1 ), array( 100, 1, 100 ), array( 100, 2, 21 ), array( -1, 1, 121 ) ) as $case ) {
+		list( $page_size, $page, $expected_entries ) = $case;
+		$wp_query = new WP_Query( array( 'post_type' => 'post', 'docszine_issue' => get_term( $issue_id )->slug, 'paged' => $page, 'posts_per_page' => $page_size ) );
+		$check( $wp_query->post_count > 0, 'Every Issue contents page also has native query results.' );
 		ob_start();
 		include get_template_directory() . '/taxonomy-docszine_issue.php';
 		$archive = ob_get_clean();
 		$check( $expected_entries === substr_count( $archive, '<article class="issue-entry ' ), 'Native Issue template paginates all stories.' );
-		$check( false !== strpos( $archive, 'Issue contents pages' ), 'Issue template exposes pagination navigation.' );
+		$check( ( $page_size > 0 ) === ( false !== strpos( $archive, 'Issue contents pages' ) ), 'Pagination follows native page-size and no-paging settings.' );
 	}
 	$wp_query = $original_query;
 	wp_reset_postdata();

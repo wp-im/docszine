@@ -54,7 +54,8 @@ get_template_part(
 			)
 		);
 		$issue_page   = max( 1, (int) get_query_var( 'paged' ) );
-		$issue_size   = 30;
+		$issue_size   = (int) get_query_var( 'posts_per_page' );
+		$issue_size   = $issue_size > 0 ? $issue_size : max( 1, $issue_total );
 		$issue_offset = ( $issue_page - 1 ) * $issue_size;
 		$issue_left   = $issue_size;
 		foreach ( $issue_groups as $group_key => $group ) {

@@ -3,7 +3,7 @@ Contributors: docszine
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 8.0
-Stable tag: 0.3.0
+Stable tag: 0.3.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, grid-layout, one-column, two-columns, three-columns, custom-logo, custom-menu, editor-style, featured-images, theme-options, threaded-comments, translation-ready
@@ -34,6 +34,10 @@ No. The theme does not load remote fonts, analytics, advertising, or tracking se
 
 == Changelog ==
 
+= 0.3.1 =
+
+* Follow the native archive query page size, including no-paging mode, so complete Issue navigation agrees with WordPress URL validation and Reading settings.
+
 = 0.3.0 =
 
 * Kept both widget-ready rails on every route; moved all article and Page TOCs into their own content.
@@ -56,9 +60,9 @@ No. The theme does not load remote fonts, analytics, advertising, or tracking se
 
 == Upgrade Notice ==
 
-= 0.3.0 =
+= 0.3.1 =
 
-Updates reading layout, mobile drawers, toolbar handling and complete Issue navigation. TOCs now belong to the current article or Page. Existing widget IDs and native content are preserved. Editorial remains optional.
+Includes the 0.3 reading-system upgrade and honors WordPress archive page-size settings for complete Issue pagination. Existing content and widget IDs are preserved.
 
 == Resources ==
 
