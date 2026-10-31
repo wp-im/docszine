@@ -37,6 +37,8 @@ The page hierarchy is therefore editorial and navigational. A reader can enter t
 
 ### Visual characteristics
 
+The following describes the archived reference. In the current theme, both widget rails are present by default, the TOC belongs to the article, and the top menu opens independently.
+
 - Quiet, light editorial surface: white background, soft gray panels, thin rules, dark gray text, and a restrained orange accent.
 - Wide desktop composition: fixed left issue rail, central reading column, and optional right-side article TOC.
 - Strong typographic hierarchy: oversized issue/article titles, small uppercase-like metadata labels, deck text, reading time, and compact section headers.

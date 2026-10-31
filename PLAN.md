@@ -1,6 +1,8 @@
 # Docszine / Plan
 
-状态：Docszine 0.2.0 已完成本地与线上部署复核；wordpress.im/docszine 已网络启用并在子站激活，0.1.2 仍作为可回滚基线保留。项目不提交 WordPress.org 或 GitHub。
+当前状态（2026-10-31）：Docszine 0.3.1 已部署到 wordpress.im/docszine，并在持久 Studio QA 站完成技术与浏览器验收。独立仓库为 https://github.com/wp-im/docszine 。本轮已获授权提交、推送及发布 GitHub 安装包，不提交 WordPress.org。
+
+当前范围与验收以 `docs/maturity-upgrade-2026-10-30.md`、`docs/audits/2026-10-31/release-0.3.0.md` 和 `release-0.3.1.md` 为准：默认双侧 Widgets、独立顶部菜单、篇内 TOC，以及随真实 toolbar 变化的阅读布局。下文保留早期规划历史；其中旧版本、右栏 TOC 和暂不发布 GitHub 的描述已被上述记录取代。
 
 目标：把当前的 Field Notes Magazine 设计底稿发展为一个可独立安装、可维护、可发布的 WordPress Classic Theme，并在 `wordpress.im/docszine` 建立它自己的展示站。
 
