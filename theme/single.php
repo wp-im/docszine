@@ -12,8 +12,9 @@ if ( have_posts() ) :
 	$issue         = docszine_get_post_issue( $article_id );
 	$section       = docszine_get_post_section( $article_id );
 	$topics        = docszine_get_post_topics( $article_id );
-	$toc_content   = docszine_get_current_article_page_content();
-	$headings      = docszine_get_article_headings( $toc_content );
+	$article_html  = apply_filters( 'the_content', get_the_content() );
+	$article_html  = docszine_prepare_article_content( docszine_add_article_heading_ids( $article_html ) );
+	$headings      = post_password_required() ? array() : docszine_get_article_headings( $article_html );
 	$shell_context = docszine_get_shell_context(
 		array(
 			'route'    => 'article',
@@ -35,21 +36,20 @@ if ( have_posts() ) :
 		<?php if ( $issue || $section ) : ?>
 			<p class="article-kicker"><?php echo esc_html( implode( ' · ', array_filter( array( $issue ? docszine_get_issue_display_label( $issue ) : '', $section ? $section->name : '' ) ) ) ); ?></p>
 		<?php endif; ?>
-		<h1><?php the_title(); ?></h1>
-		<?php if ( has_excerpt() ) : ?>
+		<h1><?php echo wp_kses_post( docszine_get_title() ); ?></h1>
+		<?php if ( has_excerpt() && ! post_password_required() ) : ?>
 			<p class="article-deck"><?php echo esc_html( get_the_excerpt() ); ?></p>
 		<?php endif; ?>
 		<?php /* translators: %d: estimated reading time in minutes. */ ?>
 		<div class="article-meta"><?php esc_html_e( 'By', 'docszine' ); ?> <?php docszine_posted_by(); ?> · <?php docszine_posted_on(); ?> · <?php echo esc_html( sprintf( __( '%d min read', 'docszine' ), docszine_get_read_time( $article_id ) ) ); ?></div>
+		<?php get_template_part( 'template-parts/navigation/toc', null, array( 'headings' => $headings ) ); ?>
 		<div class="docszine-prose article-body">
 			<?php
-			ob_start();
-			the_content();
-			$content = ob_get_clean();
+			$content = $article_html;
 			if ( '' === trim( $content ) ) {
 				$content = '<p class="empty-content-message">' . esc_html__( 'This article is ready for its first paragraph.', 'docszine' ) . '</p>';
 			}
-			echo docszine_prepare_article_content( $content ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- content already passed through the_content filters or is theme-generated escaped markup.
+			echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Core content filters have already run once.
 			wp_link_pages(
 				array(
 					'before' => '<nav class="post-page-links" aria-label="' . esc_attr__( 'Article pages', 'docszine' ) . '"><span>' . esc_html__( 'Pages:', 'docszine' ) . '</span>',

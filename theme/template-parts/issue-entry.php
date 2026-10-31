@@ -14,7 +14,7 @@ $has_thumbnail = has_post_thumbnail( $issue_post );
 ?>
 <article class="issue-entry <?php echo $has_thumbnail ? 'has-thumbnail' : 'no-thumbnail'; ?>">
 	<div class="issue-entry-copy">
-		<h3><a href="<?php echo esc_url( get_permalink( $issue_post ) ); ?>"><?php echo esc_html( get_the_title( $issue_post ) ); ?></a></h3>
+		<h3><a href="<?php echo esc_url( get_permalink( $issue_post ) ); ?>"><?php echo esc_html( docszine_get_title( $issue_post ) ); ?></a></h3>
 		<?php
 		if ( $excerpt ) :
 			?>

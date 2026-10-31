@@ -2,9 +2,24 @@
 set -euo pipefail
 
 project_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-# Usage: package-release.sh THEME_VERSION PLUGIN_VERSION
-theme_version="${1:-0.2.0}"
-plugin_version="${2:-0.1.1}"
+# Optional arguments must agree with the source headers, so filenames cannot
+# accidentally label new code as an old rollback release.
+source_theme_version="$(awk '/^Version: / { print $2; exit }' "$project_dir/theme/style.css")"
+source_plugin_version="$(awk '/^ \* Version: / { print $3; exit }' "$project_dir/plugin/docszine-editorial.php")"
+theme_version="${1:-$source_theme_version}"
+plugin_version="${2:-$source_plugin_version}"
+if [[ ! "$theme_version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || [[ ! "$plugin_version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+	printf '%s\n' 'FAIL: valid source release versions are required.' >&2
+	exit 1
+fi
+if [ "$theme_version" != "$source_theme_version" ] || [ "$plugin_version" != "$source_plugin_version" ]; then
+	printf '%s\n' 'FAIL: requested package versions differ from source headers.' >&2
+	exit 1
+fi
+if ! grep -Fxq "Stable tag: $theme_version" "$project_dir/theme/readme.txt"; then
+	printf '%s\n' 'FAIL: theme readme stable tag differs from source header.' >&2
+	exit 1
+fi
 build_dir="$project_dir/build"
 stage_dir="$(mktemp -d "${TMPDIR:-/tmp}/docszine-package.XXXXXX")"
 

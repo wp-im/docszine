@@ -24,7 +24,7 @@ if ( empty( $related_posts ) ) {
 	<div class="related-list">
 		<?php foreach ( $related_posts as $related_post ) : ?>
 			<?php $related_issue = docszine_get_post_issue( $related_post->ID ); ?>
-			<a href="<?php echo esc_url( get_permalink( $related_post ) ); ?>"><strong><?php echo esc_html( get_the_title( $related_post ) ); ?></strong><span><?php echo esc_html( $related_issue ? docszine_get_issue_display_label( $related_issue ) : get_the_date( '', $related_post ) ); ?></span></a>
+			<a href="<?php echo esc_url( get_permalink( $related_post ) ); ?>"><strong><?php echo esc_html( docszine_get_title( $related_post ) ); ?></strong><span><?php echo esc_html( $related_issue ? docszine_get_issue_display_label( $related_issue ) : get_the_date( '', $related_post ) ); ?></span></a>
 		<?php endforeach; ?>
 	</div>
 </section>

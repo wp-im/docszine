@@ -1,0 +1,9 @@
+{
+  "preferredVersions": { "php": "8.0", "wp": "6.6" },
+  "steps": [
+    { "step": "activatePlugin", "pluginPath": "docszine-editorial/docszine-editorial.php" },
+    { "step": "activateTheme", "themeFolderName": "docszine" },
+    { "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; require '/docszine-tests/seed-runtime.php';" },
+    { "step": "installPlugin", "pluginData": { "resource": "wordpress.org/plugins", "slug": "theme-check" }, "options": { "activate": true } }
+  ]
+}

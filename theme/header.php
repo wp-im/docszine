@@ -34,7 +34,7 @@
 					'container'      => false,
 					'menu_class'     => 'primary-menu',
 					'fallback_cb'    => false,
-					'depth'          => 1,
+					'depth'          => 3,
 				)
 			);
 			?>
@@ -54,7 +54,7 @@
 					'container'      => false,
 					'menu_class'     => 'mobile-primary-menu',
 					'fallback_cb'    => false,
-					'depth'          => 1,
+					'depth'          => 3,
 				)
 			);
 			?>

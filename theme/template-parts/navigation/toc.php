@@ -6,14 +6,15 @@
  */
 
 $headings = isset( $args['headings'] ) && is_array( $args['headings'] ) ? $args['headings'] : array();
-$variant  = isset( $args['variant'] ) && 'rail' === $args['variant'] ? 'rail' : 'inline';
-if ( ! $headings ) {
+if ( count( $headings ) < 2 ) {
 	return;
 }
 ?>
-<nav class="docszine-toc docszine-toc--<?php echo esc_attr( $variant ); ?>" aria-label="<?php esc_attr_e( 'On this page', 'docszine' ); ?>">
-	<strong><?php esc_html_e( 'On this page', 'docszine' ); ?></strong>
+<details class="docszine-toc docszine-toc--article">
+	<summary><?php esc_html_e( 'On this page', 'docszine' ); ?></summary>
+	<nav aria-label="<?php esc_attr_e( 'On this page', 'docszine' ); ?>">
 	<?php foreach ( $headings as $heading ) : ?>
-		<a href="#<?php echo esc_attr( $heading['id'] ); ?>"><?php echo esc_html( $heading['title'] ); ?></a>
+		<a href="#<?php echo esc_attr( rawurlencode( $heading['id'] ) ); ?>"><?php echo esc_html( $heading['title'] ); ?></a>
 	<?php endforeach; ?>
-</nav>
+	</nav>
+</details>

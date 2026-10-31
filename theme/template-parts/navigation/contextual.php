@@ -15,7 +15,7 @@ $issue   = ! empty( $context['issue'] ) ? $context['issue'] : null;
 			<h2 class="docszine-rail-label"><?php esc_html_e( 'Continue reading', 'docszine' ); ?></h2>
 			<div class="docszine-context-list">
 				<?php foreach ( $related as $related_post ) : ?>
-					<a href="<?php echo esc_url( get_permalink( $related_post ) ); ?>"><?php echo esc_html( get_the_title( $related_post ) ); ?></a>
+					<a href="<?php echo esc_url( get_permalink( $related_post ) ); ?>"><?php echo esc_html( docszine_get_title( $related_post ) ); ?></a>
 				<?php endforeach; ?>
 			</div>
 		<?php endif; ?>

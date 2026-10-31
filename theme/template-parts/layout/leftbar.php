@@ -46,4 +46,7 @@ $terms   = docszine_get_issue_terms_ordered();
 	<?php if ( is_active_sidebar( 'docszine-leftbar' ) ) : ?>
 		<div class="docszine-widget-stack"><?php dynamic_sidebar( 'docszine-leftbar' ); ?></div>
 	<?php endif; ?>
+	<?php if ( ! docszine_get_docs_tree_pages() && ! $terms && ! $issue && ! is_active_sidebar( 'docszine-leftbar' ) ) : ?>
+		<?php get_search_form(); ?>
+	<?php endif; ?>
 </div>

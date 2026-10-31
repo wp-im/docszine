@@ -29,6 +29,11 @@ $docszine_test_pages = array(
 
 function absint( $value ) {
 	return abs( (int) $value ); }
+function get_current_blog_id() {
+	return 1; }
+function get_locale() {
+	global $docszine_test_locale;
+	return $docszine_test_locale ?? 'en_US'; }
 function get_theme_mod( $name, $default = false ) {
 	return 'docszine_docs_root_page' === $name ? 1 : $default; }
 function get_post( $post_id ) {
@@ -73,5 +78,18 @@ docszine_test_assert_tree( ! docszine_is_docs_page_current( 1 ), 'the root is no
 docszine_test_assert_tree( docszine_is_docs_page_ancestor( 1 ), 'the root is marked as a current Page ancestor' );
 docszine_test_assert_tree( docszine_is_docs_page_ancestor( 2 ), 'the Section is marked as a current Page ancestor' );
 docszine_test_assert_tree( docszine_is_docs_page_current( 4 ), 'the current Page is marked current' );
+
+$docszine_test_locale = 'ja';
+$docszine_test_pages  = array( new WP_Post( 1 ) );
+for ( $id = 2; $id <= 1000; ++$id ) {
+	$docszine_test_pages[] = new WP_Post( $id, $id - 1 );
+}
+$large_tree = docszine_get_docs_tree_pages();
+docszine_test_assert_tree( 1000 === count( $large_tree ) && 1000 === end( $large_tree )->ID, 'deep 1000-page tree is complete and isolated by locale' );
+
+$docszine_test_locale = 'zh_CN';
+$docszine_test_pages  = array( new WP_Post( 1, 3 ), new WP_Post( 2, 1 ), new WP_Post( 3, 2 ) );
+$cycle_tree = docszine_get_docs_tree_pages();
+docszine_test_assert_tree( 3 === count( $cycle_tree ), 'cyclic parent data terminates with each Page once' );
 
 echo "PASS: Docszine Docs Tree contract\n";

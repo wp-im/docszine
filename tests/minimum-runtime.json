@@ -1,0 +1,11 @@
+{
+  "preferredVersions": { "php": "8.0", "wp": "6.6" },
+  "steps": [
+    { "step": "activatePlugin", "pluginPath": "docszine-editorial/docszine-editorial.php" },
+    { "step": "activateTheme", "themeFolderName": "docszine" },
+    { "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; require '/docszine-tests/seed-runtime.php';" },
+    { "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; ob_start(); require '/docszine-tests/test-native-library.php'; $output = ob_get_clean(); file_put_contents('/docszine-build/minimum-runtime-result.json', wp_json_encode(array('php'=>PHP_VERSION,'wordpress'=>get_bloginfo('version'),'result'=>$output), JSON_PRETTY_PRINT)); echo $output;" },
+    { "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; require_once ABSPATH . 'wp-admin/includes/plugin.php'; deactivate_plugins('docszine-editorial/docszine-editorial.php');" },
+    { "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; ob_start(); require '/docszine-tests/test-native-plugin-off.php'; $output = ob_get_clean(); file_put_contents('/docszine-build/minimum-runtime-plugin-off.txt', $output); echo $output;" }
+  ]
+}

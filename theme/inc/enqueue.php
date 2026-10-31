@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return string
  */
 function docszine_asset_version( $relative_path ) {
-	$path = get_template_directory() . '/' . ltrim( $relative_path, '/' );
+	$path = get_theme_file_path( '/' . ltrim( $relative_path, '/' ) );
 	return file_exists( $path ) ? (string) filemtime( $path ) : wp_get_theme()->get( 'Version' );
 }
 
@@ -30,23 +30,25 @@ function docszine_enqueue_assets() {
 	);
 	wp_enqueue_style(
 		'docszine',
-		get_template_directory_uri() . '/assets/css/magazine.css',
+		get_theme_file_uri( '/assets/css/magazine.css' ),
 		array( 'docszine-style' ),
 		docszine_asset_version( 'assets/css/magazine.css' )
 	);
 
 	wp_enqueue_script(
 		'docszine-navigation',
-		get_template_directory_uri() . '/assets/js/navigation.js',
+		get_theme_file_uri( '/assets/js/navigation.js' ),
 		array(),
 		docszine_asset_version( 'assets/js/navigation.js' ),
 		true
 	);
 
-	if ( is_singular( 'post' ) ) {
+	wp_localize_script( 'docszine-navigation', 'docszineNavigation', array( 'scrollRegion' => __( 'Scrollable content. Use the arrow keys to read more.', 'docszine' ) ) );
+
+	if ( is_singular( array( 'post', 'page' ) ) ) {
 		wp_enqueue_script(
 			'docszine-article',
-			get_template_directory_uri() . '/assets/js/article.js',
+			get_theme_file_uri( '/assets/js/article.js' ),
 			array(),
 			docszine_asset_version( 'assets/js/article.js' ),
 			true

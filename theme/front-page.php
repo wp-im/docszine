@@ -5,6 +5,11 @@
  * @package Docszine
  */
 
+if ( 'posts' === get_option( 'show_on_front' ) ) {
+	require get_theme_file_path( '/home.php' );
+	return;
+}
+
 get_header();
 $current_issue         = docszine_get_current_issue();
 $issue_posts           = $current_issue ? docszine_get_issue_posts( $current_issue->term_id, 8 ) : array();
@@ -39,7 +44,7 @@ get_template_part(
 	<div class="docszine-home-content">
 		<section class="docszine-home-intro">
 			<p class="eyebrow"><?php esc_html_e( 'Documentation', 'docszine' ); ?></p>
-			<h1 class="page-title"><?php echo esc_html( $docs_root ? get_the_title( $docs_root ) : get_bloginfo( 'name' ) ); ?></h1>
+			<h1 class="page-title"><?php echo esc_html( $docs_root ? docszine_get_title( $docs_root ) : get_bloginfo( 'name' ) ); ?></h1>
 			<p class="page-deck"><?php echo esc_html( $docs_root && has_excerpt( $docs_root ) ? get_the_excerpt( $docs_root ) : get_bloginfo( 'description' ) ); ?></p>
 			<p class="docszine-index-meta"><?php esc_html_e( 'Enter through the documentation tree, or browse the sections below.', 'docszine' ); ?></p>
 			<div class="docszine-lead-search">
@@ -66,7 +71,7 @@ get_template_part(
 				<?php foreach ( array_slice( $docs_entries, 0, 8 ) as $index => $entry ) : ?>
 					<a class="docszine-directory-row<?php echo 0 === $index ? ' is-primary' : ''; ?>" href="<?php echo esc_url( get_permalink( $entry ) ); ?>">
 						<span class="docszine-directory-num"><?php echo esc_html( str_pad( (string) ( $index + 1 ), 2, '0', STR_PAD_LEFT ) ); ?></span>
-						<span><span class="docszine-directory-title"><?php echo esc_html( get_the_title( $entry ) ); ?></span><span class="docszine-directory-desc"><?php echo esc_html( wp_trim_words( get_the_excerpt( $entry ), 24 ) ); ?></span></span>
+						<span><span class="docszine-directory-title"><?php echo esc_html( docszine_get_title( $entry ) ); ?></span><span class="docszine-directory-desc"><?php echo esc_html( wp_trim_words( get_the_excerpt( $entry ), 24 ) ); ?></span></span>
 						<span class="docszine-directory-arrow" aria-hidden="true">→</span>
 					</a>
 				<?php endforeach; ?>
@@ -126,7 +131,7 @@ get_template_part(
 				if ( $lead_section ) :
 					?>
 					<p class="eyebrow"><?php echo esc_html( $lead_section->name ); ?></p><?php endif; ?>
-				<h3><a href="<?php echo esc_url( get_permalink( $lead_post ) ); ?>"><?php echo esc_html( get_the_title( $lead_post ) ); ?></a></h3>
+				<h3><a href="<?php echo esc_url( get_permalink( $lead_post ) ); ?>"><?php echo esc_html( docszine_get_title( $lead_post ) ); ?></a></h3>
 				<p><?php echo esc_html( wp_trim_words( get_the_excerpt( $lead_post ), 38 ) ); ?></p>
 			<?php /* translators: %d: estimated reading time in minutes. */ ?>
 			<div class="meta-line"><?php echo esc_html( get_the_author_meta( 'display_name', $lead_post->post_author ) ); ?> · <?php echo esc_html( sprintf( __( '%d min read', 'docszine' ), docszine_get_read_time( $lead_post->ID ) ) ); ?></div>
@@ -136,7 +141,7 @@ get_template_part(
 				foreach ( array_slice( $secondary_issue_posts, 0, 5 ) as $issue_post ) :
 					$section = docszine_get_post_section( $issue_post->ID );
 					?>
-					<a class="story-row" href="<?php echo esc_url( get_permalink( $issue_post ) ); ?>"><span class="story-kicker"><?php echo esc_html( $section ? $section->name : __( 'Story', 'docszine' ) ); ?></span><span><span class="story-title"><?php echo esc_html( get_the_title( $issue_post ) ); ?></span><span class="story-desc"><?php echo esc_html( wp_trim_words( get_the_excerpt( $issue_post ), 18 ) ); ?></span></span></a>
+					<a class="story-row" href="<?php echo esc_url( get_permalink( $issue_post ) ); ?>"><span class="story-kicker"><?php echo esc_html( $section ? $section->name : __( 'Story', 'docszine' ) ); ?></span><span><span class="story-title"><?php echo esc_html( docszine_get_title( $issue_post ) ); ?></span><span class="story-desc"><?php echo esc_html( wp_trim_words( get_the_excerpt( $issue_post ), 18 ) ); ?></span></span></a>
 				<?php endforeach; ?>
 			</div>
 		</div>
@@ -164,7 +169,7 @@ get_template_part(
 				<?php
 				foreach ( $section_posts as $item ) :
 					?>
-				<a class="cross-item" href="<?php echo esc_url( get_permalink( $item ) ); ?>"><strong><?php echo esc_html( get_the_title( $item ) ); ?></strong><span><?php echo esc_html( get_the_date( '', $item ) ); ?></span></a><?php endforeach; ?></section><?php endif; ?>
+				<a class="cross-item" href="<?php echo esc_url( get_permalink( $item ) ); ?>"><strong><?php echo esc_html( docszine_get_title( $item ) ); ?></strong><span><?php echo esc_html( get_the_date( '', $item ) ); ?></span></a><?php endforeach; ?></section><?php endif; ?>
 			<?php
 			if ( $topic_posts ) :
 				?>
@@ -172,7 +177,7 @@ get_template_part(
 				<?php
 				foreach ( $topic_posts as $item ) :
 					?>
-				<a class="cross-item" href="<?php echo esc_url( get_permalink( $item ) ); ?>"><strong><?php echo esc_html( get_the_title( $item ) ); ?></strong><span><?php echo esc_html( get_the_date( '', $item ) ); ?></span></a><?php endforeach; ?></section><?php endif; ?>
+				<a class="cross-item" href="<?php echo esc_url( get_permalink( $item ) ); ?>"><strong><?php echo esc_html( docszine_get_title( $item ) ); ?></strong><span><?php echo esc_html( get_the_date( '', $item ) ); ?></span></a><?php endforeach; ?></section><?php endif; ?>
 			<?php
 			if ( $latest_posts ) :
 				?>
@@ -180,7 +185,7 @@ get_template_part(
 				<?php
 				foreach ( $latest_posts as $item ) :
 					?>
-				<a class="cross-item" href="<?php echo esc_url( get_permalink( $item ) ); ?>"><strong><?php echo esc_html( get_the_title( $item ) ); ?></strong><span><?php echo esc_html( get_the_date( '', $item ) ); ?></span></a><?php endforeach; ?></section><?php endif; ?>
+				<a class="cross-item" href="<?php echo esc_url( get_permalink( $item ) ); ?>"><strong><?php echo esc_html( docszine_get_title( $item ) ); ?></strong><span><?php echo esc_html( get_the_date( '', $item ) ); ?></span></a><?php endforeach; ?></section><?php endif; ?>
 		</div>
 	</section>
 	<?php endif; ?>
@@ -193,7 +198,7 @@ get_template_part(
 			if ( $latest_posts ) :
 				foreach ( $latest_posts as $latest_post ) :
 					?>
-				<a class="story-row" href="<?php echo esc_url( get_permalink( $latest_post ) ); ?>"><span class="story-kicker"><?php echo esc_html( get_the_date( 'Y.m.d', $latest_post ) ); ?></span><span><span class="story-title"><?php echo esc_html( get_the_title( $latest_post ) ); ?></span><span class="story-desc"><?php echo esc_html( wp_trim_words( get_the_excerpt( $latest_post ), 22 ) ); ?></span></span></a><?php endforeach; ?>
+				<a class="story-row" href="<?php echo esc_url( get_permalink( $latest_post ) ); ?>"><span class="story-kicker"><?php echo esc_html( get_the_date( 'Y.m.d', $latest_post ) ); ?></span><span><span class="story-title"><?php echo esc_html( docszine_get_title( $latest_post ) ); ?></span><span class="story-desc"><?php echo esc_html( wp_trim_words( get_the_excerpt( $latest_post ), 22 ) ); ?></span></span></a><?php endforeach; ?>
 			<?php else : ?>
 				<?php
 				get_template_part(

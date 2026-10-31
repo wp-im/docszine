@@ -71,26 +71,26 @@ function docszine_get_post_topic( $post_id = 0 ) {
  * @return WP_Term[]
  */
 function docszine_get_issue_terms_ordered() {
-	static $terms = null;
+	static $cache = array();
+	$cache_key    = get_current_blog_id() . ':' . get_locale();
 
-	if ( null !== $terms ) {
-		return $terms;
+	if ( isset( $cache[ $cache_key ] ) ) {
+		return $cache[ $cache_key ];
 	}
 	if ( ! taxonomy_exists( 'docszine_issue' ) ) {
-		$terms = array();
-		return $terms;
+		return array();
 	}
 
 	$found = get_terms(
 		array(
 			'taxonomy'   => 'docszine_issue',
 			'hide_empty' => false,
-			'number'     => 100,
+			'number'     => 0,
 		)
 	);
 	if ( is_wp_error( $found ) || empty( $found ) ) {
-		$terms = array();
-		return $terms;
+		$cache[ $cache_key ] = array();
+		return $cache[ $cache_key ];
 	}
 
 	usort(
@@ -107,8 +107,8 @@ function docszine_get_issue_terms_ordered() {
 		}
 	);
 
-	$terms = array_values( $found );
-	return $terms;
+	$cache[ $cache_key ] = array_values( $found );
+	return $cache[ $cache_key ];
 }
 
 /** Get configured current Issue, falling back to the newest Issue. */
@@ -132,31 +132,32 @@ function docszine_get_current_issue() {
  * Query posts in one issue in editorial order, cached for this request.
  *
  * @param int $issue_term_id Issue term ID.
- * @param int $limit        Maximum number of posts to return.
+ * @param int $limit        Maximum number of posts to return; zero returns the complete Issue.
  * @return WP_Post[]
  */
 function docszine_get_issue_posts( $issue_term_id, $limit = 100 ) {
 	static $cache = array();
 
 	$issue_term_id = absint( $issue_term_id );
-	$limit         = min( 100, max( 1, absint( $limit ) ) );
+	$limit         = absint( $limit );
 	if ( ! taxonomy_exists( 'docszine_issue' ) || ! $issue_term_id ) {
 		return array();
 	}
 
-	$cache_key = $issue_term_id . ':' . $limit;
+	$cache_key = get_current_blog_id() . ':' . get_locale() . ':' . $issue_term_id;
 	if ( isset( $cache[ $cache_key ] ) ) {
-		return $cache[ $cache_key ];
+		return $limit ? array_slice( $cache[ $cache_key ], 0, $limit ) : $cache[ $cache_key ];
 	}
 
 	$query = new WP_Query(
 		array(
 			'post_type'              => 'post',
 			'post_status'            => 'publish',
-			'posts_per_page'         => $limit,
+			// Read one complete Issue once: slicing before sorting loses editorial order.
+			'posts_per_page'         => -1,
 			'no_found_rows'          => true,
 			'ignore_sticky_posts'    => true,
-			// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query -- The Issue archive is bounded to the requested 100-post display limit.
+			// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query -- Only one Issue is loaded and cached for this request.
 			'tax_query'              => array(
 				array(
 					'taxonomy' => 'docszine_issue',
@@ -181,14 +182,15 @@ function docszine_get_issue_posts( $issue_term_id, $limit = 100 ) {
 			$a_key   = $a_order > 0 ? $a_order : PHP_INT_MAX;
 			$b_key   = $b_order > 0 ? $b_order : PHP_INT_MAX;
 			if ( $a_key === $b_key ) {
-				return strcmp( $a->post_date, $b->post_date );
+				$date_order = strcmp( $a->post_date, $b->post_date );
+				return $date_order ? $date_order : ( (int) $a->ID <=> (int) $b->ID );
 			}
 			return $a_key <=> $b_key;
 		}
 	);
 
 	$cache[ $cache_key ] = $posts;
-	return $posts;
+	return $limit ? array_slice( $posts, 0, $limit ) : $posts;
 }
 
 /**
@@ -203,7 +205,7 @@ function docszine_get_issue_posts( $issue_term_id, $limit = 100 ) {
  * @return WP_Post|null
  */
 function docszine_get_issue_lead_post( $issue_term_id, $issue_posts = null ) {
-	$posts = is_array( $issue_posts ) ? $issue_posts : docszine_get_issue_posts( $issue_term_id, 100 );
+	$posts = is_array( $issue_posts ) ? $issue_posts : docszine_get_issue_posts( $issue_term_id, 0 );
 	if ( empty( $posts ) ) {
 		return null;
 	}
@@ -230,12 +232,13 @@ function docszine_get_issue_posts_grouped( $issue_term_id ) {
 	static $cache = array();
 
 	$issue_term_id = absint( $issue_term_id );
-	if ( isset( $cache[ $issue_term_id ] ) ) {
-		return $cache[ $issue_term_id ];
+	$cache_key     = get_current_blog_id() . ':' . get_locale() . ':' . $issue_term_id;
+	if ( isset( $cache[ $cache_key ] ) ) {
+		return $cache[ $cache_key ];
 	}
 
 	$groups = array();
-	foreach ( docszine_get_issue_posts( $issue_term_id ) as $post ) {
+	foreach ( docszine_get_issue_posts( $issue_term_id, 0 ) as $post ) {
 		$section = docszine_get_post_section( $post->ID );
 		$key     = $section ? 'term-' . $section->term_id : 'unsectioned';
 		if ( ! isset( $groups[ $key ] ) ) {
@@ -247,7 +250,7 @@ function docszine_get_issue_posts_grouped( $issue_term_id ) {
 		$groups[ $key ]['posts'][] = $post;
 	}
 
-	$cache[ $issue_term_id ] = $groups;
+	$cache[ $cache_key ] = $groups;
 	return $groups;
 }
 
@@ -263,13 +266,13 @@ function docszine_get_issue_adjacent_post( $post_id, $direction = 'next' ) {
 	if ( ! $issue ) {
 		return null;
 	}
-	$posts = docszine_get_issue_posts( $issue->term_id );
+	$posts = docszine_get_issue_posts( $issue->term_id, 0 );
 	$ids   = wp_list_pluck( $posts, 'ID' );
 	$index = array_search( (int) $post_id, array_map( 'intval', $ids ), true );
 	if ( false === $index ) {
 		return null;
 	}
-	$target = 'previous' === $direction ? $index + 1 : $index - 1;
+	$target = 'previous' === $direction ? $index - 1 : $index + 1;
 	return isset( $posts[ $target ] ) ? $posts[ $target ] : null;
 }
 

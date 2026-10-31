@@ -43,7 +43,30 @@ get_template_part(
 			</div>
 		</section>
 
-		<?php $issue_groups = docszine_get_issue_posts_grouped( $issue->term_id ); ?>
+		<?php
+		$issue_groups = docszine_get_issue_posts_grouped( $issue->term_id );
+		$issue_total  = array_sum(
+			array_map(
+				static function ( $group ) {
+					return count( $group['posts'] );
+				},
+				$issue_groups
+			)
+		);
+		$issue_page   = max( 1, (int) get_query_var( 'paged' ) );
+		$issue_size   = 30;
+		$issue_offset = ( $issue_page - 1 ) * $issue_size;
+		$issue_left   = $issue_size;
+		foreach ( $issue_groups as $group_key => $group ) {
+			$group_count                         = count( $group['posts'] );
+			$issue_groups[ $group_key ]['posts'] = array_slice( $group['posts'], $issue_offset, $issue_left );
+			$issue_offset                        = max( 0, $issue_offset - $group_count );
+			$issue_left                         -= count( $issue_groups[ $group_key ]['posts'] );
+			if ( ! $issue_groups[ $group_key ]['posts'] ) {
+				unset( $issue_groups[ $group_key ] );
+			}
+		}
+		?>
 		<?php if ( $issue_groups ) : ?>
 			<?php foreach ( $issue_groups as $group ) : ?>
 				<section class="issue-section">
@@ -65,6 +88,20 @@ get_template_part(
 				)
 			);
 			?>
+		<?php endif; ?>
+		<?php if ( $issue_total > $issue_size ) : ?>
+			<nav class="pagination" aria-label="<?php esc_attr_e( 'Issue contents pages', 'docszine' ); ?>">
+				<?php
+				echo wp_kses_post(
+					paginate_links(
+						array(
+							'total'   => (int) ceil( $issue_total / $issue_size ),
+							'current' => $issue_page,
+						)
+					)
+				);
+				?>
+			</nav>
 		<?php endif; ?>
 
 		<?php

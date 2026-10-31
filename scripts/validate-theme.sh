@@ -2,7 +2,7 @@
 set -euo pipefail
 
 project_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-version="${1:-0.2.0}"
+version="${1:-$(awk '/^Version: / { print $2; exit }' "$project_dir/theme/style.css")}"
 pending=0
 
 printf '%s\n' 'Docszine local validation'

@@ -9,7 +9,7 @@ $entry_issue = docszine_get_post_issue( get_the_ID() );
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'archive-entry' ); ?>>
 	<header class="entry-header">
-		<h2><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+		<h2><a href="<?php the_permalink(); ?>" rel="bookmark"><?php echo wp_kses_post( docszine_get_title() ); ?></a></h2>
 		<div class="entry-meta">
 		<?php
 		if ( $entry_issue ) :
