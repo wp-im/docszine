@@ -43,7 +43,7 @@ get_template_part(
 					?>
 					<a class="docszine-directory-row<?php echo 1 === $section_index ? ' is-primary' : ''; ?>" href="<?php the_permalink(); ?>">
 						<span class="docszine-directory-num"><?php echo esc_html( str_pad( (string) $section_index, 2, '0', STR_PAD_LEFT ) ); ?></span>
-						<span><span class="docszine-directory-title"><?php echo wp_kses_post( docszine_get_title() ); ?></span><span class="docszine-directory-desc"><?php echo esc_html( wp_trim_words( get_the_excerpt(), 24 ) ); ?></span><span class="docszine-directory-meta"><?php echo esc_html( get_the_date( 'Y.m.d' ) ); ?> · <?php echo esc_html( get_the_author() ); ?></span></span>
+						<span><span class="docszine-directory-title"><?php echo wp_kses_post( docszine_get_title() ); ?></span><span class="docszine-directory-desc"><?php echo esc_html( wp_trim_words( get_the_excerpt(), 24 ) ); ?></span><span class="docszine-directory-meta"><?php echo esc_html( get_the_date( 'Y.m.d' ) ); ?> · <?php echo esc_html( get_the_author() ? get_the_author() : __( 'Editorial team', 'docszine' ) ); ?></span></span>
 						<span class="docszine-directory-arrow" aria-hidden="true">→</span>
 					</a>
 				<?php endwhile; ?>

@@ -2,7 +2,7 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Docszine 0.2.0\n"
+"Project-Id-Version: Docszine 0.3.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/docszine\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,7 +39,7 @@ msgstr ""
 msgid "Page not found"
 msgstr ""
 
-#: 404.php:22
+#: 404.php:23
 msgid "The page may have moved, or the address may be incorrect. Search the magazine instead."
 msgstr ""
 
@@ -77,6 +77,11 @@ msgstr ""
 msgid "Read in order or choose a single entry"
 msgstr ""
 
+#: category.php:46
+#: inc/template-tags.php:42
+msgid "Editorial team"
+msgstr ""
+
 #. translators: %1$s: number of comments.
 #: comments.php:15
 #, php-format
@@ -94,83 +99,83 @@ msgstr ""
 msgid "Footer navigation"
 msgstr ""
 
-#: front-page.php:41
-#: inc/docs-tree.php:187
+#: front-page.php:46
+#: inc/docs-tree.php:209
 #: template-parts/layout/leftbar.php:14
 msgid "Documentation"
 msgstr ""
 
-#: front-page.php:44
+#: front-page.php:49
 msgid "Enter through the documentation tree, or browse the sections below."
 msgstr ""
 
-#: front-page.php:54
+#: front-page.php:59
 msgid "The documentation is taking shape."
 msgstr ""
 
-#: front-page.php:55
+#: front-page.php:60
 msgid "Publish a Page to give this reading room its first entry."
 msgstr ""
 
-#: front-page.php:64
+#: front-page.php:69
 msgid "Start here"
 msgstr ""
 
-#: front-page.php:64
+#: front-page.php:69
 msgid "Browse the documentation"
 msgstr ""
 
 #. translators: %s: current Issue label.
-#: front-page.php:86
+#: front-page.php:91
 #, php-format
 msgid "Current Issue · %s"
 msgstr ""
 
-#: front-page.php:95
+#: front-page.php:100
 msgid "Explore this issue"
 msgstr ""
 
-#: front-page.php:109
+#: front-page.php:114
 msgid "This Issue is ready for its first story."
 msgstr ""
 
-#: front-page.php:110
+#: front-page.php:115
 msgid "Add a published post to the current Issue to begin the editorial sequence."
 msgstr ""
 
-#: front-page.php:117
+#: front-page.php:122
 msgid "From the current issue"
 msgstr ""
 
 #. translators: %d: estimated reading time in minutes.
-#: front-page.php:132
-#: single.php:43
+#: front-page.php:137
+#: single.php:44
 #: template-parts/issue-entry.php:23
 #, php-format
 msgid "%d min read"
 msgstr ""
 
-#: front-page.php:139
+#: front-page.php:144
 msgid "Story"
 msgstr ""
 
-#: front-page.php:158
+#: front-page.php:163
 msgid "Across issues"
 msgstr ""
 
-#: front-page.php:158
+#: front-page.php:163
 msgid "Browse the magazine beyond the boundaries of a single issue."
 msgstr ""
 
-#: front-page.php:179
+#: front-page.php:184
 msgid "Latest"
 msgstr ""
 
-#: front-page.php:203
+#: front-page.php:208
 msgid "The magazine is ready for its first story."
 msgstr ""
 
-#: front-page.php:204
+#: front-page.php:209
 msgid "Publish a post to begin the reading sequence."
 msgstr ""
 
@@ -223,9 +228,13 @@ msgid "Footer text"
 msgstr ""
 
 #. translators: %s: documentation page title.
-#: inc/docs-tree.php:161
+#: inc/docs-tree.php:183
 #, php-format
 msgid "Expand or collapse %s"
+msgstr ""
+
+#: inc/enqueue.php:47
+msgid "Scrollable content. Use the arrow keys to read more."
 msgstr ""
 
 #: inc/setup.php:40
@@ -252,19 +261,35 @@ msgstr ""
 msgid "Optional contextual content beside the reading column."
 msgstr ""
 
-#: inc/template-tags.php:26
-msgid "Editorial team"
+#: inc/template-tags.php:20
+msgid "Untitled"
 msgstr ""
 
 #. translators: %s: issue number.
-#: inc/template-tags.php:65
+#: inc/template-tags.php:81
 #, php-format
 msgid "Issue %s"
 msgstr ""
 
-#: inc/template-tags.php:394
-#: taxonomy-docszine_issue.php:50
+#: inc/template-tags.php:484
+#: taxonomy-docszine_issue.php:73
 msgid "Other"
+msgstr ""
+
+#: inc/template-tags.php:496
+msgid "View complete Issue contents"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Docs Section Index"
+msgstr ""
+
+#: page-templates/docs-section.php:24
+msgid "In this section"
+msgstr ""
+
+#: page-templates/docs-section.php:36
+msgid "This section has no child Pages yet."
 msgstr ""
 
 #: search.php:21
@@ -287,7 +312,7 @@ msgid "Search…"
 msgstr ""
 
 #. translators: %d: estimated reading time in minutes.
-#: single.php:43
+#: single.php:44
 msgid "By"
 msgstr ""
 
@@ -331,24 +356,28 @@ msgstr[1] ""
 msgid "Editor’s note"
 msgstr ""
 
-#: taxonomy-docszine_issue.php:62
+#: taxonomy-docszine_issue.php:85
 msgid "No stories in this Issue yet."
 msgstr ""
 
-#: taxonomy-docszine_issue.php:63
+#: taxonomy-docszine_issue.php:86
 msgid "Publish a post and assign it to this Issue to make the sequence visible here."
 msgstr ""
 
-#: taxonomy-docszine_issue.php:75
+#: taxonomy-docszine_issue.php:93
+msgid "Issue contents pages"
+msgstr ""
+
+#: taxonomy-docszine_issue.php:112
 #: template-parts/layout/leftbar.php:18
 msgid "Issue navigation"
 msgstr ""
 
-#: taxonomy-docszine_issue.php:80
+#: taxonomy-docszine_issue.php:117
 msgid "Previous Issue"
 msgstr ""
 
-#: taxonomy-docszine_issue.php:85
+#: taxonomy-docszine_issue.php:122
 msgid "Next Issue"
 msgstr ""
 
@@ -384,7 +413,7 @@ msgstr ""
 msgid "There is no content here yet."
 msgstr ""
 
-#: template-parts/content-page.php:13
+#: template-parts/content-page.php:16
 msgid "This page is ready for its first note."
 msgstr ""
 
@@ -393,12 +422,9 @@ msgid "Issues"
 msgstr ""
 
 #: template-parts/layout/shell-end.php:11
-msgid "More from Docszine"
-msgstr ""
-
 #: template-parts/layout/shell-end.php:12
-#: template-parts/layout/shell-start.php:27
-msgid "More reading"
+#: template-parts/layout/shell-start.php:26
+msgid "Sidebar"
 msgstr ""
 
 #: template-parts/layout/shell-end.php:12
@@ -406,19 +432,15 @@ msgid "Close additional reading"
 msgstr ""
 
 #: template-parts/layout/shell-start.php:25
-#: template-parts/layout/shell-start.php:37
+#: template-parts/layout/shell-start.php:33
 msgid "Browse"
 msgstr ""
 
-#: template-parts/layout/shell-start.php:29
-msgid "About this section"
-msgstr ""
-
-#: template-parts/layout/shell-start.php:36
+#: template-parts/layout/shell-start.php:32
 msgid "Browse the publication"
 msgstr ""
 
-#: template-parts/layout/shell-start.php:37
+#: template-parts/layout/shell-start.php:33
 msgid "Close publication navigation"
 msgstr ""
 

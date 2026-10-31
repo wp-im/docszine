@@ -103,6 +103,10 @@ printf '%s\n' 'Text line endings: PASS'
 if command -v theme-check >/dev/null 2>&1; then
   theme-check "$project_dir/theme"
   printf '%s\n' 'Theme Check: PASS'
+elif [ -n "${DOCSZINE_QA_PATH:-}" ] && command -v studio >/dev/null 2>&1; then
+  diff -qr "$project_dir/theme" "$DOCSZINE_QA_PATH/wp-content/themes/docszine"
+  studio wp --path "$DOCSZINE_QA_PATH" theme-check run docszine
+  printf '%s\n' 'Native Studio Theme Check: PASS'
 else
   printf '%s\n' 'Theme Check: PENDING (official Theme Check runner is not installed)'
   pending=1

@@ -19,8 +19,8 @@ Tradeoff: complete Issue ordering still loads all published stories in that Issu
 
 ## Not yet accepted
 
-Full browser route/width matrix, authenticated toolbar and final package/deployment/repository publication remain outstanding. Native plugin-off assertions and a minimum-runtime Blueprint are included for repeatable verification.
+The final browser matrix, authenticated toolbar checks, package and production deployment are recorded in [release-0.3.0.md](release-0.3.0.md). Native plugin-off assertions and a minimum-runtime Blueprint are included for repeatable verification.
 
-Opening the persistent site in the Studio app injected its normal global MU-plugin loader outside the chosen site-directory PHP boundary. That loader currently emits an open_basedir warning. User confirmation is pending for changing only this QA site's Studio file-access setting to all-files so the app's native auto-login can run. No generated loader or PHP security configuration was patched around this issue.
+Opening the persistent site in the Studio app injected its normal global MU-plugin loader outside the chosen site-directory PHP boundary, causing an open_basedir warning. The user explicitly approved changing only Docszine QA Preview to Studio's all-files access mode. `studio config set --path /Users/zhanbin/Studio/docszine-qa --file-access all-files` completed and restarted this QA server; reading the specific config key confirmed all-files. Fresh HTTP and the user's original browser tab after reload both showed no PHP warning. Evidence: `studio-warning-resolved.jpg`. No generated loader was patched and no sibling site was changed.
 
-This is working source, not a new stable release. Theme version remains 0.2.0 until final acceptance and packaging.
+This intermediate regression record is superseded by the final 0.3.0 release record.

@@ -1,0 +1,74 @@
+[
+  {
+    "test": "admin short-height left drawer",
+    "bottom": 399.992073059082,
+    "focused": "Close publication navigation",
+    "height": 400,
+    "locked": true,
+    "mainInert": true,
+    "modal": "true",
+    "top": 45.99115753173828,
+    "viewport": 390,
+    "width": 272.9245300292969
+  },
+  {
+    "test": "backward focus trap",
+    "focus": "資料を読み続けるための設計",
+    "inside": true
+  },
+  {
+    "test": "forward focus trap",
+    "focus": "Close publication navigation"
+  },
+  {
+    "test": "escape restores focus",
+    "focus": "☰Browse",
+    "locked": false,
+    "mainInert": false
+  },
+  {
+    "test": "admin short-height right drawer",
+    "bottom": 399.992073059082,
+    "modal": "true",
+    "top": 45.99115753173828,
+    "viewport": 390,
+    "width": 343.11077880859375
+  },
+  {
+    "test": "height-only resize preserves drawer",
+    "height": 844,
+    "locked": true,
+    "open": true
+  },
+  {
+    "test": "desktop breakpoint closes drawer",
+    "dialogs": 0,
+    "focus": "primary",
+    "locked": false,
+    "mainInert": false,
+    "width": 1180
+  },
+  {
+    "test": "desktop footer at article end",
+    "footer": 773.808349609375,
+    "leftBottom": 685.8112149238586,
+    "maxScroll": 3119,
+    "scroll": 3118.686767578125
+  },
+  {
+    "test": "mobile toolbar scroll-away and TOC anchor",
+    "headerTop": 0,
+    "localBottom": 108.49905014038086,
+    "scroll": 2055.555419921875,
+    "targetTop": 120.6597137451172,
+    "toolbarBottom": -2009.556369781494
+  },
+  {
+    "test": "independent top menu",
+    "drawerCount": 0,
+    "headerBottom": 63.999366760253906,
+    "locked": false,
+    "open": true,
+    "panelTop": 63.999366760253906
+  }
+]

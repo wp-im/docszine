@@ -27,7 +27,7 @@ Seeded a new local database with documentation hierarchy, a section index templa
 
 Screenshots beside this file: desktop homepage, Chinese mobile article, left drawer, right drawer. Temporary viewport override reset; homepage retained as a browser deliverable.
 
-This evidence establishes a local preview only. Full responsive route matrix, authenticated toolbar behavior, large-library behavior, official Theme Check, final package version, production deployment and Docszine GitHub publication still require completion under the active upgrade goal.
+This file records the initial local preview. The completed responsive/runtime/toolbar checks and production deployment are recorded in [release-0.3.0.md](release-0.3.0.md).
 
 To start this registered site later without printing credentials:
 

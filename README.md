@@ -2,6 +2,18 @@
 
 Docszine is a WordPress Classic Theme for a document-led editorial magazine: long-form reading, issue navigation, and structured archives without turning the content into a page-builder canvas.
 
+## Version 0.3.0
+
+Requires WordPress 6.6+ and PHP 8.0+. The optional Docszine Editorial plugin remains at 0.1.1. Both sidebars use native widgets on every public route. On smaller screens, Browse opens from the left (at most 70% of the viewport), Sidebar opens from the right (at most 90%), and the primary menu remains a separate control. Each article or Page owns its TOC.
+
+Install `docszine-theme-0.3.0.zip` through Appearance → Themes. Install the separate Editorial package only when Issue metadata and editorial shortcodes are needed. Existing Posts, Pages, Categories, Tags, authors, widgets and permalinks remain native WordPress data.
+
+Choose a static homepage and a posts page under Settings → Reading for the Docs-first layout, or select latest posts for a conventional blog. Set the Docs Root page under Customize → Documentation Navigation. Configure Primary and Footer menus under Appearance → Menus, and the existing `docszine-leftbar` / `docszine-rightbar` areas under Appearance → Widgets. The Docs Section Index Page template lists published direct child Pages; native Categories remain editorial Sections.
+
+Issue archives paginate the complete publication, while the sidebar limits its visible list and keeps the current article accessible. Article navigation follows editorial order. Asset versions use file content digests so reproducible ZIP timestamps do not preserve stale browser caches.
+
+Local development checks: `DOCSZINE_QA_PATH=/path/to/studio/site bash scripts/validate-theme.sh`. The registered QA theme must match `theme/`; the script runs the official Theme Check plugin through Studio. The native minimum-version Blueprint and browser matrix harness are in `tests/`. Acceptance records and limitations are under `docs/audits/2026-10-31/`. No real-device or screen-reader certification is claimed, and no WordPress.org submission is performed.
+
 ## Reference captured
 
 The local reference is the `Field Notes Magazine 1.0.1` Classic Theme package from the supplied ChatGPT project conversation.
@@ -57,6 +69,6 @@ Docszine keeps this editorial logic while developing its own visual identity and
 - native category/tag/author/search/archive/404 fallbacks;
 - responsive left rail / local navigation / TOC behavior;
 - editor styles aligned with the front-end reading measure;
-- no GitHub commit or push; the WordPress subsite remains the verified production baseline while the current local R3 candidate has completed isolated runtime smoke, official Theme Check, Plugin Check for the companion plugin, the fixed-viewport visual matrix, the 320/360px zoom-equivalent reflow check, drawer interaction smoke, the first full complex-content fixture, and core empty-state fixtures; screen-reader, real-browser zoom, empty-state combinations, and contributor identity gates remain.
+- the earlier R3 candidate established isolated runtime, official Theme Check, companion Plugin Check, responsive, drawer, content and empty-state baselines; the 0.3.0 acceptance records supersede that historical status.
 
-The companion plugin remains separate and is installed only on the Docszine subsite for Issue metadata, editorial order, homepage selections, and reading shortcodes. The current local candidate has also passed a Chromium accessibility-tree preflight for Home, Article, empty Search, and 404, empty Section/Topic/Author archives, no-menu navigation fallback, and a final isolated route smoke; real screen-reader and 200%/400% browser-zoom review remain release gates.
+The companion plugin remains separate and is installed only on the Docszine subsite for Issue metadata, editorial order, homepage selections, and reading shortcodes. Historical accessibility-tree and zoom-equivalent checks are bounded evidence; current native/browser acceptance and any remaining limitations are recorded with the release, without requiring physical-device acceptance.

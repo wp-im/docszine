@@ -17,7 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function docszine_asset_version( $relative_path ) {
 	$path = get_theme_file_path( '/' . ltrim( $relative_path, '/' ) );
-	return file_exists( $path ) ? (string) filemtime( $path ) : wp_get_theme()->get( 'Version' );
+	$hash = is_readable( $path ) ? hash_file( 'sha256', $path ) : false;
+	return $hash ? substr( $hash, 0, 12 ) : wp_get_theme()->get( 'Version' );
 }
 
 /** Enqueue theme styles and scripts. */

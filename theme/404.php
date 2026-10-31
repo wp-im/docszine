@@ -19,7 +19,9 @@ get_template_part(
 );
 ?>
 	<header class="error-header"><p class="eyebrow">404</p><h1 class="error-title"><?php esc_html_e( 'Page not found', 'docszine' ); ?></h1></header>
-	<p><?php esc_html_e( 'The page may have moved, or the address may be incorrect. Search the magazine instead.', 'docszine' ); ?></p>
-	<?php get_search_form(); ?>
+	<div class="page-content">
+		<p><?php esc_html_e( 'The page may have moved, or the address may be incorrect. Search the magazine instead.', 'docszine' ); ?></p>
+		<?php get_search_form(); ?>
+	</div>
 <?php get_template_part( 'template-parts/layout/shell-end', null, array( 'context' => $shell_context ) ); ?>
 <?php get_footer(); ?>

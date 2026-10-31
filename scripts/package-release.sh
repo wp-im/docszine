@@ -49,7 +49,9 @@ cp -R "$project_dir/plugin" "$stage_dir/source/docszine/"
 cp -R "$project_dir/content" "$stage_dir/source/docszine/"
 cp -R "$project_dir/tests" "$stage_dir/source/docszine/"
 cp -R "$project_dir/scripts" "$stage_dir/source/docszine/"
+cp -R "$project_dir/docs" "$stage_dir/source/docszine/"
 cp "$project_dir/README.md" "$project_dir/PLAN.md" "$stage_dir/source/docszine/"
+cp "$project_dir/composer.json" "$project_dir/composer.lock" "$project_dir/package.json" "$project_dir/package-lock.json" "$project_dir/phpcs.xml.dist" "$project_dir/.gitignore" "$stage_dir/source/docszine/"
 find "$stage_dir/source" -exec touch -t 200001010000 {} +
 ( cd "$stage_dir/source" && find docszine -type f -print | LC_ALL=C sort | zip -X -q "$build_dir/docszine-source-$theme_version.zip" -@ )
 

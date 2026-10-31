@@ -134,7 +134,7 @@ get_template_part(
 				<h3><a href="<?php echo esc_url( get_permalink( $lead_post ) ); ?>"><?php echo esc_html( docszine_get_title( $lead_post ) ); ?></a></h3>
 				<p><?php echo esc_html( wp_trim_words( get_the_excerpt( $lead_post ), 38 ) ); ?></p>
 			<?php /* translators: %d: estimated reading time in minutes. */ ?>
-			<div class="meta-line"><?php echo esc_html( get_the_author_meta( 'display_name', $lead_post->post_author ) ); ?> · <?php echo esc_html( sprintf( __( '%d min read', 'docszine' ), docszine_get_read_time( $lead_post->ID ) ) ); ?></div>
+			<div class="meta-line"><?php docszine_posted_by( $lead_post ); ?> · <?php echo esc_html( sprintf( __( '%d min read', 'docszine' ), docszine_get_read_time( $lead_post->ID ) ) ); ?></div>
 			</article>
 			<div class="story-list">
 				<?php

@@ -1,0 +1,22 @@
+[
+  {
+    "panel": "Browse",
+    "locked": true,
+    "mainInert": true,
+    "modal": "true",
+    "panelWidth": 273,
+    "toolbarBottom": 46,
+    "top": 46,
+    "width": 390
+  },
+  {
+    "panel": "Sidebar",
+    "locked": true,
+    "mainInert": true,
+    "modal": "true",
+    "panelWidth": 343.1953125,
+    "toolbarBottom": 46,
+    "top": 46,
+    "width": 390
+  }
+]

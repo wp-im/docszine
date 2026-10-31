@@ -29,10 +29,15 @@ function docszine_posted_on() {
 	);
 }
 
-/** Posted author markup. */
-function docszine_posted_by() {
-	$author_id   = absint( get_the_author_meta( 'ID' ) );
-	$author_name = get_the_author();
+/**
+ * Posted author markup, including preloaded Issue stories.
+ *
+ * @param int|WP_Post $post Post ID or object; defaults to the current post.
+ */
+function docszine_posted_by( $post = 0 ) {
+	$record      = get_post( $post );
+	$author_id   = $record ? absint( $record->post_author ) : 0;
+	$author_name = $author_id ? get_the_author_meta( 'display_name', $author_id ) : '';
 	if ( ! $author_id || '' === trim( $author_name ) ) {
 		esc_html_e( 'Editorial team', 'docszine' );
 		return;
@@ -40,8 +45,8 @@ function docszine_posted_by() {
 
 	printf(
 		'<a class="author-link" href="%1$s">%2$s</a>',
-		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-		esc_html( get_the_author() )
+		esc_url( get_author_posts_url( $author_id ) ),
+		esc_html( $author_name )
 	);
 }
 

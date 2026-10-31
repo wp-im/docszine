@@ -1,0 +1,478 @@
+[
+  {
+    "state": "production-admin",
+    "requested": 1440,
+    "targetWidth": 1440,
+    "route": "home",
+    "asideToc": 0,
+    "axisMismatch": false,
+    "footerOverlap": false,
+    "h1": 1,
+    "header": {
+      "bottom": 96,
+      "left": 0,
+      "right": 1440,
+      "top": 32,
+      "width": 1440
+    },
+    "heading": {
+      "bottom": 207.2734375,
+      "left": 430,
+      "right": 1050,
+      "top": 160.6875,
+      "width": 620
+    },
+    "height": 844,
+    "leak": false,
+    "left": 1,
+    "local": {
+      "bottom": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0
+    },
+    "main": 1,
+    "overflow": 0,
+    "prose": null,
+    "right": 1,
+    "surface": {
+      "bottom": 2710.453125,
+      "left": 430,
+      "right": 1050,
+      "top": 134,
+      "width": 620
+    },
+    "toolbar": {
+      "bottom": 32,
+      "left": 0,
+      "right": 1440,
+      "top": 0,
+      "width": 1440
+    },
+    "toolbarOverlap": false,
+    "warning": false,
+    "width": 1440
+  },
+  {
+    "state": "production-admin",
+    "requested": 1440,
+    "targetWidth": 1440,
+    "route": "page",
+    "asideToc": 0,
+    "axisMismatch": false,
+    "footerOverlap": false,
+    "h1": 1,
+    "header": {
+      "bottom": 96,
+      "left": 0,
+      "right": 1440,
+      "top": 32,
+      "width": 1440
+    },
+    "heading": {
+      "bottom": 179.7890625,
+      "left": 430,
+      "right": 1050,
+      "top": 134,
+      "width": 620
+    },
+    "height": 844,
+    "leak": false,
+    "left": 1,
+    "local": {
+      "bottom": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0
+    },
+    "main": 1,
+    "overflow": 0,
+    "prose": {
+      "bottom": 596.6640625,
+      "left": 430,
+      "right": 1050,
+      "top": 204.7890625,
+      "width": 620
+    },
+    "right": 1,
+    "surface": {
+      "bottom": 596.6640625,
+      "left": 430,
+      "right": 1050,
+      "top": 134,
+      "width": 620
+    },
+    "toolbar": {
+      "bottom": 32,
+      "left": 0,
+      "right": 1440,
+      "top": 0,
+      "width": 1440
+    },
+    "toolbarOverlap": false,
+    "warning": false,
+    "width": 1440
+  },
+  {
+    "state": "production-admin",
+    "requested": 1440,
+    "targetWidth": 1440,
+    "route": "issue",
+    "asideToc": 0,
+    "axisMismatch": false,
+    "footerOverlap": false,
+    "h1": 1,
+    "header": {
+      "bottom": 96,
+      "left": 0,
+      "right": 1440,
+      "top": 32,
+      "width": 1440
+    },
+    "heading": {
+      "bottom": 305.15625,
+      "left": 430,
+      "right": 1050,
+      "top": 169.6875,
+      "width": 620
+    },
+    "height": 844,
+    "leak": false,
+    "left": 1,
+    "local": {
+      "bottom": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0
+    },
+    "main": 1,
+    "overflow": 0,
+    "prose": {
+      "bottom": 383.71875,
+      "left": 430,
+      "right": 1050,
+      "top": 323.15625,
+      "width": 620
+    },
+    "right": 1,
+    "surface": {
+      "bottom": 545.25,
+      "left": 430,
+      "right": 1050,
+      "top": 134,
+      "width": 620
+    },
+    "toolbar": {
+      "bottom": 32,
+      "left": 0,
+      "right": 1440,
+      "top": 0,
+      "width": 1440
+    },
+    "toolbarOverlap": false,
+    "warning": false,
+    "width": 1440
+  },
+  {
+    "state": "production-admin",
+    "requested": 1440,
+    "targetWidth": 1440,
+    "route": "article",
+    "asideToc": 0,
+    "axisMismatch": false,
+    "footerOverlap": false,
+    "h1": 1,
+    "header": {
+      "bottom": 96,
+      "left": 0,
+      "right": 1440,
+      "top": 32,
+      "width": 1440
+    },
+    "heading": {
+      "bottom": 206.3828125,
+      "left": 430,
+      "right": 1050,
+      "top": 159.828125,
+      "width": 620
+    },
+    "height": 844,
+    "leak": false,
+    "left": 1,
+    "local": {
+      "bottom": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0
+    },
+    "main": 1,
+    "overflow": 0,
+    "prose": {
+      "bottom": 1397.7578125,
+      "left": 430,
+      "right": 1050,
+      "top": 364.8046875,
+      "width": 620
+    },
+    "right": 1,
+    "surface": {
+      "bottom": 1541.3359375,
+      "left": 430,
+      "right": 1050,
+      "top": 134,
+      "width": 620
+    },
+    "toolbar": {
+      "bottom": 32,
+      "left": 0,
+      "right": 1440,
+      "top": 0,
+      "width": 1440
+    },
+    "toolbarOverlap": false,
+    "warning": false,
+    "width": 1440
+  },
+  {
+    "state": "production-admin",
+    "requested": 390,
+    "targetWidth": 390,
+    "route": "home",
+    "asideToc": 0,
+    "axisMismatch": false,
+    "footerOverlap": false,
+    "h1": 1,
+    "header": {
+      "bottom": 110,
+      "left": 0,
+      "right": 390,
+      "top": 46,
+      "width": 390
+    },
+    "heading": {
+      "bottom": 245.7890625,
+      "left": 18,
+      "right": 372,
+      "top": 211.6875,
+      "width": 354
+    },
+    "height": 844,
+    "leak": false,
+    "left": 1,
+    "local": {
+      "bottom": 155,
+      "left": 0,
+      "right": 390,
+      "top": 110,
+      "width": 390
+    },
+    "main": 1,
+    "overflow": 0,
+    "prose": null,
+    "right": 1,
+    "surface": {
+      "bottom": 3250.609375,
+      "left": 18,
+      "right": 372,
+      "top": 185,
+      "width": 354
+    },
+    "toolbar": {
+      "bottom": 46,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390
+    },
+    "toolbarOverlap": false,
+    "warning": false,
+    "width": 390
+  },
+  {
+    "state": "production-admin",
+    "requested": 390,
+    "targetWidth": 390,
+    "route": "page",
+    "asideToc": 0,
+    "axisMismatch": false,
+    "footerOverlap": false,
+    "h1": 1,
+    "header": {
+      "bottom": 110,
+      "left": 0,
+      "right": 390,
+      "top": 46,
+      "width": 390
+    },
+    "heading": {
+      "bottom": 218.9140625,
+      "left": 18,
+      "right": 372,
+      "top": 185,
+      "width": 354
+    },
+    "height": 844,
+    "leak": false,
+    "left": 1,
+    "local": {
+      "bottom": 155,
+      "left": 0,
+      "right": 390,
+      "top": 110,
+      "width": 390
+    },
+    "main": 1,
+    "overflow": 0,
+    "prose": {
+      "bottom": 926.4140625,
+      "left": 18,
+      "right": 372,
+      "top": 243.9140625,
+      "width": 354
+    },
+    "right": 1,
+    "surface": {
+      "bottom": 926.4140625,
+      "left": 18,
+      "right": 372,
+      "top": 185,
+      "width": 354
+    },
+    "toolbar": {
+      "bottom": 46,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390
+    },
+    "toolbarOverlap": false,
+    "warning": false,
+    "width": 390
+  },
+  {
+    "state": "production-admin",
+    "requested": 390,
+    "targetWidth": 390,
+    "route": "issue",
+    "asideToc": 0,
+    "axisMismatch": false,
+    "footerOverlap": false,
+    "h1": 1,
+    "header": {
+      "bottom": 110,
+      "left": 0,
+      "right": 390,
+      "top": 46,
+      "width": 390
+    },
+    "heading": {
+      "bottom": 285.375,
+      "left": 18,
+      "right": 372,
+      "top": 211.6875,
+      "width": 354
+    },
+    "height": 844,
+    "leak": false,
+    "left": 1,
+    "local": {
+      "bottom": 155,
+      "left": 0,
+      "right": 390,
+      "top": 110,
+      "width": 390
+    },
+    "main": 1,
+    "overflow": 0,
+    "prose": {
+      "bottom": 427.125,
+      "left": 18,
+      "right": 372,
+      "top": 303.375,
+      "width": 354
+    },
+    "right": 1,
+    "surface": {
+      "bottom": 612.84375,
+      "left": 18,
+      "right": 372,
+      "top": 185,
+      "width": 354
+    },
+    "toolbar": {
+      "bottom": 46,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390
+    },
+    "toolbarOverlap": false,
+    "warning": false,
+    "width": 390
+  },
+  {
+    "state": "production-admin",
+    "requested": 390,
+    "targetWidth": 390,
+    "route": "article",
+    "asideToc": 0,
+    "axisMismatch": false,
+    "footerOverlap": false,
+    "h1": 1,
+    "header": {
+      "bottom": 110,
+      "left": 0,
+      "right": 390,
+      "top": 46,
+      "width": 390
+    },
+    "heading": {
+      "bottom": 280.34375,
+      "left": 18,
+      "right": 372,
+      "top": 210.828125,
+      "width": 354
+    },
+    "height": 844,
+    "leak": false,
+    "left": 1,
+    "local": {
+      "bottom": 155,
+      "left": 0,
+      "right": 390,
+      "top": 110,
+      "width": 390
+    },
+    "main": 1,
+    "overflow": 0,
+    "prose": {
+      "bottom": 1888.59375,
+      "left": 18,
+      "right": 372,
+      "top": 438.765625,
+      "width": 354
+    },
+    "right": 1,
+    "surface": {
+      "bottom": 2061.171875,
+      "left": 18,
+      "right": 372,
+      "top": 185,
+      "width": 354
+    },
+    "toolbar": {
+      "bottom": 46,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390
+    },
+    "toolbarOverlap": false,
+    "warning": false,
+    "width": 390
+  }
+]

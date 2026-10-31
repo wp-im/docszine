@@ -20,7 +20,7 @@ $has_thumbnail = has_post_thumbnail( $issue_post );
 			?>
 			<p><?php echo esc_html( wp_trim_words( $excerpt, 34 ) ); ?></p><?php endif; ?>
 		<?php /* translators: %d: estimated reading time in minutes. */ ?>
-		<div class="entry-meta"><?php echo esc_html( get_the_author_meta( 'display_name', $issue_post->post_author ) ); ?> · <?php echo esc_html( sprintf( __( '%d min read', 'docszine' ), docszine_get_read_time( $issue_post->ID ) ) ); ?></div>
+		<div class="entry-meta"><?php docszine_posted_by( $issue_post ); ?> · <?php echo esc_html( sprintf( __( '%d min read', 'docszine' ), docszine_get_read_time( $issue_post->ID ) ) ); ?></div>
 	</div>
 	<?php if ( $has_thumbnail ) : ?>
 		<a class="issue-thumb" href="<?php echo esc_url( get_permalink( $issue_post ) ); ?>" tabindex="-1" aria-hidden="true"><?php echo get_the_post_thumbnail( $issue_post, 'medium_large', array( 'loading' => 'lazy' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>

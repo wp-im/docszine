@@ -3,7 +3,7 @@ Contributors: docszine
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 8.0
-Stable tag: 0.2.0
+Stable tag: 0.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, grid-layout, one-column, two-columns, three-columns, custom-logo, custom-menu, editor-style, featured-images, theme-options, threaded-comments, translation-ready
@@ -34,6 +34,15 @@ No. The theme does not load remote fonts, analytics, advertising, or tracking se
 
 == Changelog ==
 
+= 0.3.0 =
+
+* Kept both widget-ready rails on every route; moved all article and Page TOCs into their own content.
+* Unified toolbar, header, menu, drawer and anchor geometry, including mobile scroll-away toolbar behavior.
+* Improved modal focus, inert background, viewport changes, mobile prose, native search widgets and password forms.
+* Aligned indexes, Issue pages and 404 content to the reading measure; added a native Docs Section Index template.
+* Corrected complete Issue ordering, pagination and previous/next navigation; guarded large or cyclic Docs Trees.
+* Added content-based asset versions, child asset overrides and package version validation.
+
 = 0.2.0 =
 
 * Added a shared reading shell with left and right widget-ready rails on every public route.
@@ -47,13 +56,9 @@ No. The theme does not load remote fonts, analytics, advertising, or tracking se
 
 == Upgrade Notice ==
 
-= 0.2.0 =
+= 0.3.0 =
 
-Adds a consistent three-column reading layout, multi-Issue navigation, widget areas, and responsive accessible rails.
-
-= 0.1.2 =
-
-Initial release.
+Updates reading layout, mobile drawers, toolbar handling and complete Issue navigation. TOCs now belong to the current article or Page. Existing widget IDs and native content are preserved. Editorial remains optional.
 
 == Resources ==
 
